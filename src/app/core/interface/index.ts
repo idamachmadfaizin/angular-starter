@@ -1,1 +1,2 @@
-export * from './configuration';
+export * from './iconfiguration';
+export * from './idatetimepicker-icon';

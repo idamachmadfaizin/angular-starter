@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import * as firebase from 'firebase';
+import * as firebase from 'firebase/app';
+import 'firebase/messaging';
 import { Subject } from 'rxjs';
 import { environment } from '@env/environment';
 
@@ -21,13 +22,12 @@ export class FirebaseService {
   getPermission() {
     Notification.requestPermission()
       .then(() => {
-        console.log('Notification permission granted.');
         return this.messaging.getToken();
       })
       .then(token => {
-        console.log(token);
+        console.log('Notification permission granted.', token);
       })
-      .catch(err => console.error(err, 'Unable to get permission!'));
+      .catch(err => console.error(err.message));
   }
 
   /**
