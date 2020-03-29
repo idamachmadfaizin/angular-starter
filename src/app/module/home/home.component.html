@@ -9,11 +9,29 @@
     </div>
 </div>
 
-<swal
-  #successSwal
-  title="Good job!"
-  text="This cannot be undone"
-  icon="success">
-</swal>
+
+
+<!-- <div class=""> -->
+    <form [formGroup]="myform" (ngSubmit)="onSubmit()" >
+        <!-- <div class="form-group">
+            <label for="minimumSetup">Minimum Setup</label>
+            <div #foobarElement class='input-group date' id='datetimepicker1'>
+                <input formControlName="dtp" type='text' class="form-control" id="dtp" />
+                <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-calendar"></span>
+                </span>
+            </div>
+        </div> -->
+        <core-input
+            [iformControl]="username"
+            ilabel="Username"
+            iid="username"
+            iclass="form-control"
+        ></core-input>
+        <button>Submit</button>
+    </form>
+<!-- </div> -->
+
+<swal #successSwal title="Good job!" text="This cannot be undone" icon="success"></swal>
 
 <button [swal]="successSwal" class="btn btn-primary">Success</button>

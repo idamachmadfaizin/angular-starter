@@ -1,4 +1,4 @@
-export enum Sweetalert2Icon {
+export enum SWEETALERT2ICON {
     Success = 'success',
     Error = 'error',
     Warning = 'warning',

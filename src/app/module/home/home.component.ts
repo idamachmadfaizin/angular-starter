@@ -1,9 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { DATETIMEPICKERICON } from './../../core/enumeration/datetimepicker-icon.enum';
+import { FormGroup, FormBuilder, FormControl, NgForm } from '@angular/forms';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { User } from '@app/core/model/user.model';
 import { UserService } from '@app/core/service/user.service';
 import { first } from 'rxjs/operators';
 import { Sweetalert2 } from '@app/core/helper/sweetalert2.helper';
-import { Sweetalert2Icon } from '@app/core/enumeration/sweetalert2-icon.enum';
+import { SWEETALERT2ICON } from '@app/core/enumeration';
+
+declare var $: any;
 
 @Component({
   selector: 'app-home',
@@ -15,7 +19,13 @@ export class HomeComponent implements OnInit {
   loading = false;
   users: User[];
 
-  constructor(private userService: UserService) { }
+  // Test form
+  myform: FormGroup;
+  username = new FormControl('test');
+
+  @ViewChild('foobarElement') foobar: ElementRef;
+
+  constructor(private userService: UserService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.loading = true;
@@ -23,7 +33,20 @@ export class HomeComponent implements OnInit {
       this.loading = false;
       this.users = users;
     });
-    Sweetalert2.toast('Signed in successfully', Sweetalert2Icon.Success);
+    Sweetalert2.toast('Signed in successfully', SWEETALERT2ICON.Success);
+
+    this.myform = new FormGroup({
+      username: this.username
+    });
+    // $('#dtp').datetimepicker({
+    //   icons: DATETIMEPICKERICON,
+    //   showTodayButton: true
+    // });
   }
 
+  onSubmit() {
+    // console.log(event);
+    console.log(this.foobar);
+    // console.log(this.form.controls);
+  }
 }

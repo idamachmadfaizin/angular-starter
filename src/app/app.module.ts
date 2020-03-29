@@ -25,10 +25,11 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    CoreModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireMessagingModule,
-    SweetAlert2Module.forRoot(),
+
+    CoreModule, // my core module
+    AngularFireModule.initializeApp(environment.firebaseConfig), // init firebase
+    AngularFireMessagingModule, // firebase message module
+    SweetAlert2Module.forRoot(), // sweetalert module
   ],
   providers: [],
   bootstrap: [AppComponent]
