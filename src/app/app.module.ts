@@ -12,6 +12,7 @@ import { SweetAlert2Module } from '@sweetalert2/ngx-sweetalert2';
 import { AngularFireModule } from '@angular/fire';
 import { environment } from '@env/environment';
 import { AngularFireMessagingModule } from '@angular/fire/messaging';
+import { IdmInputModule } from './core/component/idm-input/idm-input.module';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { AngularFireMessagingModule } from '@angular/fire/messaging';
     AngularFireModule.initializeApp(environment.firebaseConfig), // init firebase
     AngularFireMessagingModule, // firebase message module
     SweetAlert2Module.forRoot(), // sweetalert module
+    IdmInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
