@@ -1,0 +1,12 @@
+@import "bootstrap";
+
+.input-invalid {
+    border-left: 0.3rem solid $danger;
+    // border-color: #dc3545;
+}
+.input-valid {
+    border-left: 0.3rem solid $success;
+}
+label.is-invalid {
+    color: $danger;
+}

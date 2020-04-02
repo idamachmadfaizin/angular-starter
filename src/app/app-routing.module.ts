@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'admin', component: AdminComponent, canActivate: [AuthGuard], data: { roles: [Role.Admin] } },
   { path: 'login', component: LoginComponent },
+  { path: 'form', loadChildren: () => import('./module/form/form.module').then(m => m.FormModule) },
 
   // otherwise redirect to home
   { path: '**', redirectTo: '' }

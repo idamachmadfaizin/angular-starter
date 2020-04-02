@@ -1,0 +1,27 @@
+<div class="card">
+    <div class="card-header">Form</div>
+    <div class="card-body">
+        <form [formGroup]="testForm" (ngSubmit)="submitMethod(testFormId)" #testFormId="ngForm">
+            <idm-input
+                [iformControl]="username"
+                itype="text"
+                ilabel="Username"
+                iid="username"
+            ></idm-input>
+            <idm-input
+                [iformControl]="email"
+                itype="email"
+                ilabel="Email"
+                iid="email"
+                [ireadonly]="false"
+            ></idm-input>
+            <idm-input
+                [iformControl]="password"
+                itype="password"
+                ilabel="Password"
+                iid="password"
+            ></idm-input>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</div>

@@ -12,7 +12,7 @@
 
 
 <!-- <div class=""> -->
-    <form [formGroup]="myform" (ngSubmit)="onSubmit()" >
+    <form #myform2="ngForm" [formGroup]="myform" (ngSubmit)="onSubmit(myform2)" >
         <!-- <div class="form-group">
             <label for="minimumSetup">Minimum Setup</label>
             <div #foobarElement class='input-group date' id='datetimepicker1'>
@@ -22,12 +22,12 @@
                 </span>
             </div>
         </div> -->
-        <core-input
+        <idm-input
             [iformControl]="username"
             ilabel="Username"
             iid="username"
             iclass="form-control"
-        ></core-input>
+        ></idm-input>
         <button>Submit</button>
     </form>
 <!-- </div> -->

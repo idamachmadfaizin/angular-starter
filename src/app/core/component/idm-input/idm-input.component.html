@@ -1,0 +1,32 @@
+<!-- <div class="form-group">
+    <label for="minimumSetup">Minimum Setup</label>
+    <div #foobarElement class='input-group date' id='datetimepicker1'>
+        <input formControlName="dtp" type='text' class="form-control" id="dtp" />
+        <span *ngIf=""  class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+        </span>
+    </div>
+</div> -->
+
+<div class="form-group">
+    <label [htmlFor]="id" [ngClass]="{'is-invalid': formControl.invalid && (formControl.dirty || formControl.touched)}">{{label}}</label>
+    <input
+        [formControl]="formControl"
+        [attr.type]="type"
+        [attr.id]="id"
+        [attr.class]="class"
+        [ngClass]="{
+            'is-invalid input-invalid': validation('invalid'),
+            'input-valid': validation('isvalid')
+        }"
+        [attr.disabled]="disabled"
+        [attr.readOnly]="readonly"
+    >
+    <!-- Message -->
+    <div *ngIf="formControl.invalid && (formControl.dirty || formControl.touched)" class="invalid-feedback">
+        {{formControl.errors | json}} <!-- dev check -->
+        <div *ngIf="formControl.errors.required">*{{label}} is required</div>
+        <div *ngIf="formControl.errors.minlength">*{{label}} must be at least {{formControl.errors.minlength.requiredLength}} characters long.</div>
+        <div *ngIf="formControl.errors.email">*Invalid email format</div>
+    </div>
+</div>

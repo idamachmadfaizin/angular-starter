@@ -1,5 +1,5 @@
 import { DATETIMEPICKERICON } from './../../core/enumeration/datetimepicker-icon.enum';
-import { FormGroup, FormBuilder, FormControl, NgForm } from '@angular/forms';
+import { FormGroup, FormBuilder, FormControl, NgForm, Validators } from '@angular/forms';
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { User } from '@app/core/model/user.model';
 import { UserService } from '@app/core/service/user.service';
@@ -21,9 +21,7 @@ export class HomeComponent implements OnInit {
 
   // Test form
   myform: FormGroup;
-  username = new FormControl('test');
-
-  @ViewChild('foobarElement') foobar: ElementRef;
+  username = new FormControl('', [Validators.required]);
 
   constructor(private userService: UserService, private formBuilder: FormBuilder) { }
 
@@ -44,9 +42,8 @@ export class HomeComponent implements OnInit {
     // });
   }
 
-  onSubmit() {
-    // console.log(event);
-    console.log(this.foobar);
+  onSubmit(event) {
+    console.log(event);
     // console.log(this.form.controls);
   }
 }
