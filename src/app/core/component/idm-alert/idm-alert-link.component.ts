@@ -10,9 +10,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class IdmAlertLinkComponent implements OnInit {
 
-  @Input()
-  routerLink: string | any[];
-
+  @Input() routerLink: string | any[];
   @Input() class: string;
 
   constructor() { }
